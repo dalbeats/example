@@ -41,7 +41,7 @@
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "lint": "ng lint"
   },
-  "build2": {
+  "build": {
     "publish": [{
       "provider": "github",
       "owner": "dalbeats",
