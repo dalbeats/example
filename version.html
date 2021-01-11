@@ -1,22 +1,17 @@
-<div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
-
-  <a routerLink="/detail">BACK</a>
-</div>
-
-
-
-<footer>
-  Current Version: <span id="version" style="color: black; font-size: 24px;">{{version}}</span>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Electron Updater Example</title>
+</head>
+<body>
+  Current version: <span id="version">vX.Y.Z</span>
   <div id="messages"></div>
-</footer>
-
 <script>
-
+// Display the current version
 let version = window.location.hash.substring(1);
 document.getElementById('version').innerText = version;
+
+// Listen for messages
 const {ipcRenderer} = require('electron');
 ipcRenderer.on('message', function(event, text) {
   var container = document.getElementById('messages');
@@ -25,3 +20,5 @@ ipcRenderer.on('message', function(event, text) {
   container.appendChild(message);
 })
 </script>
+</body>
+</html>

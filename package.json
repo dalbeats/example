@@ -1,6 +1,6 @@
 {
   "name": "angular-electron",
-  "version": "9.0.3",
+  "version": "9.0.4",
   "description": "Angular 11 with Electron (Typescript + SASS + Hot Reload)",
   "homepage": "https://github.com/maximegris/angular-electron",
   "author": {
@@ -30,7 +30,7 @@
     "build:dev": "npm run build -- -c dev",
     "build:prod": "npm run build -- -c production",
     "ng:serve": "ng serve -c web -o",
-    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",    
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
     "electron:serve-tsc": "tsc -p tsconfig.serve.json",
     "electron:serve": "wait-on tcp:4200 && npm run electron:serve-tsc && npx electron . --serve",
     "electron:local": "npm run build:prod && npx electron .",
@@ -42,6 +42,8 @@
     "lint": "ng lint"
   },
   "dependencies": {
+    "electron-log": "4.3.1",
+    "electron-updater": "4.3.5",
     "update-electron-app": "2.0.1"
   },
   "devDependencies": {
@@ -102,6 +104,13 @@
   },
   "engines": {
     "node": ">=10.13.0"
+  },
+  "build": {
+    "publish": [{
+      "provider": "github",
+      "owner": "dalbeats",
+      "repo": "example"
+  }]
   },
   "browserslist": [
     "chrome 83"
