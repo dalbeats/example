@@ -41,6 +41,13 @@
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "lint": "ng lint"
   },
+  "build2": {
+    "publish": [{
+      "provider": "github",
+      "owner": "dalbeats",
+      "repo": "example"
+  }]
+  },
   "dependencies": {
     "electron-log": "4.3.1",
     "electron-updater": "4.3.5",
@@ -105,13 +112,7 @@
   "engines": {
     "node": ">=10.13.0"
   },
-  "build": {
-    "publish": [{
-      "provider": "github",
-      "owner": "dalbeats",
-      "repo": "example"
-  }]
-  },
+
   "browserslist": [
     "chrome 83"
   ]
